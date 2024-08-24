@@ -45,5 +45,15 @@ class TravelAgents:
             backstory = dedent(
                 f""" Expert in travel planning and logistics.
                 I have decades of experience making travel itineraries."""),
-            )
+            goal=dedent(f"""
+                        Create a 7-day travel itinerary with detailed per-day plans,
+                        include budget, packing suggestions, and safety tips.
+                        """),
+            tools=[
+                SearchTools.search_internet,
+                CalculatorTools.calculate
+            ],
+            verbose=True,
+            llm=self.OpenAIGPT4,
         )
+
