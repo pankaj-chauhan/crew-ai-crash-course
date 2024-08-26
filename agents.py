@@ -56,4 +56,17 @@ class TravelAgents:
             verbose=True,
             llm=self.OpenAIGPT4,
         )
+    
+    def city_selection_expert(self):
+        return Agent(
+            role="City Selection Expert",
+            backstory=dedent(
+                f"""Expert at analyzing travel data to pick ideal destinations"""),
+            goal=dedent(
+                f"""Select the best cities based on weather, season, prices, and traveler interests"""),
+            tools=[SearchTools.search_internet],
+            verbose=True,
+            llm=self.OpenAIGPT4,
+        )
+
 
